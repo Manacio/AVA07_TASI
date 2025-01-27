@@ -44,7 +44,7 @@ result = model.transcribe("/caminho/para/seu/audio.mp3")
 # Exibe o texto extraído
 print(f"\n\nTexto Extraido do audio: {result['text']}")
 ```
-`Nota:` Substitua "/caminho/para/seu/audio.mp3" pelo caminho real do seu arquivo de áudio.
+[!NOTE] Nota: Substitua "/caminho/para/seu/audio.mp3" pelo caminho real do seu arquivo de áudio.
 
 #### Etapa 2: Geração de Resumo com Ollama
 Depois de transcrever o áudio para texto, você pode usar o Ollama para gerar um resumo do texto. O código para isso é o seguinte:
