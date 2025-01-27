@@ -85,6 +85,6 @@ Audio(audio_array, rate=SAMPLE_RATE)
 ```
 Esse código converterá o resumo do áudio de volta para áudio, permitindo que você ouça o conteúdo resumido.
 
-> Referncia de Audio: https://youtu.be/S3RrknnJvGY?feature=shared
+> Referência de Audio: https://youtu.be/S3RrknnJvGY?feature=shared
 
 
