@@ -1,5 +1,5 @@
 
-# O CODICO ESTÁ DIVIDIDO EM DUAS ESTAPAS
+# O CODICO ESTÁ DIVIDIDO EM TRES ESTAPAS
 # PRIMEIRA ETAPA: FAZER A INSTALAÇÃO DO WHISPER E EM SEGUIDA CONVERTER O AUDIO PARA O FORMATO DE TEXTO
 # Para instalação do Whisper digite o seguinte comando no terminal: pip install -U openai-whisper
 import whisper
