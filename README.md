@@ -18,7 +18,7 @@ Antes de rodar o script, você precisa instalar as dependências necessárias.
 
 ## Instalar as Dependências
 Instale as bibliotecas necessárias:
-```bash
+```bash bash
 pip install -U openai-whisper
 pip install langchain-ollama
 pip install git+https://github.com/suno-ai/bark.git
@@ -31,7 +31,7 @@ Este projeto está dividido em três etapas, como descrito abaixo:
 #### Etapa 1: Transcrição de Áudio para Texto
 Primeiro, você deve transcrever o áudio para texto usando o modelo Whisper. Para isso, execute o seguinte código:
 
-```python
+```python python
 
 import whisper
 
@@ -49,7 +49,7 @@ print(f"\n\nTexto Extraido do audio: {result['text']}")
 #### Etapa 2: Geração de Resumo com Ollama
 Depois de transcrever o áudio para texto, você pode usar o Ollama para gerar um resumo do texto. O código para isso é o seguinte:
 
-```python
+```python python
 from langchain_ollama.llms import OllamaLLM
 
 # Carrega o modelo Ollama
@@ -65,7 +65,7 @@ print(f"\n\nResumo do Ollama: {resposta}")
 #### Etapa 3: Geração de Áudio a partir do Resumo
 Agora, você pode gerar um arquivo de áudio com o resumo utilizando o modelo Bark. O código para gerar o áudio é o seguinte:
 
-```python
+```python python
 from bark import SAMPLE_RATE, generate_audio, preload_models
 from IPython.display import Audio
 
@@ -90,7 +90,7 @@ Geração de Áudio (Etapa 3): O resumo gerado é convertido em áudio utilizand
 Exemplo Completo de Execução
 Aqui está um exemplo de execução de todo o processo:
 
-```python
+```python python
 import whisper
 from langchain_ollama.llms import OllamaLLM
 from bark import SAMPLE_RATE, generate_audio, preload_models
