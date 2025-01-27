@@ -18,16 +18,17 @@ Antes de rodar o script, você precisa instalar as dependências necessárias.
 
 ## Instalar as Dependências
 > [!IMPORTANT]
-Instale as seguintes bibliotecas necessárias:
-```bash bash
-pip install -U openai-whisper
-pip install langchain-ollama
-pip install git+https://github.com/suno-ai/bark.git
-pip install ipython
-```
+> Instale as seguintes bibliotecas necessárias:
+> ```bash bash
+> pip install -U openai-whisper
+> pip install langchain-ollama
+> pip install git+https://github.com/suno-ai/bark.git
+> pip install ipython
+> ```
+
 > [!CAUTION]
-> Talvez seja necessario atualizar ^também o ffmpeg
-## Como Usar?
+> Talvez seja necessario atualizar também o ffmpeg
+## Funcionamento
 Este projeto está dividido em três etapas, como descrito abaixo:
 
 ### Etapa 1: Transcrição de Áudio para Texto
