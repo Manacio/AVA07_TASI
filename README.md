@@ -1,4 +1,4 @@
-# AVA07_TASI
+
 # Transcrição de Áudio, Resumo e Geração de Áudio a partir de Texto
 ## Este projeto realiza três etapas principais:
 
@@ -17,18 +17,20 @@ Pré-requisitos
 Antes de rodar o script, você precisa instalar as dependências necessárias.
 
 ## Instalar as Dependências
-Instale as bibliotecas necessárias:
+> [!IMPORTANT]
+Instale as seguintes bibliotecas necessárias:
 ```bash bash
 pip install -U openai-whisper
 pip install langchain-ollama
 pip install git+https://github.com/suno-ai/bark.git
 pip install ipython
 ```
-
-### Como Usar
+> [!CAUTION]
+> Talvez seja necessario atualizar ^também o ffmpeg
+## Como Usar?
 Este projeto está dividido em três etapas, como descrito abaixo:
 
-#### Etapa 1: Transcrição de Áudio para Texto
+### Etapa 1: Transcrição de Áudio para Texto
 Primeiro, você deve transcrever o áudio para texto usando o modelo Whisper. Para isso, execute o seguinte código:
 
 ```python python
@@ -44,9 +46,10 @@ result = model.transcribe("/caminho/para/seu/audio.mp3")
 # Exibe o texto extraído
 print(f"\n\nTexto Extraido do audio: {result['text']}")
 ```
-[!NOTE] Nota: Substitua "/caminho/para/seu/audio.mp3" pelo caminho real do seu arquivo de áudio.
+>[!NOTE]
+> Substitua "/caminho/para/seu/audio.mp3" pelo caminho real do seu arquivo de áudio.
 
-#### Etapa 2: Geração de Resumo com Ollama
+### Etapa 2: Geração de Resumo com Ollama
 Depois de transcrever o áudio para texto, você pode usar o Ollama para gerar um resumo do texto. O código para isso é o seguinte:
 
 ```python python
@@ -62,7 +65,7 @@ resposta = model.invoke("Faça um resumo o mais resumidamente possível com os p
 print(f"\n\nResumo do Ollama: {resposta}")
 ```
 
-#### Etapa 3: Geração de Áudio a partir do Resumo
+### Etapa 3: Geração de Áudio a partir do Resumo
 Agora, você pode gerar um arquivo de áudio com o resumo utilizando o modelo Bark. O código para gerar o áudio é o seguinte:
 
 ```python python
@@ -81,35 +84,6 @@ Audio(audio_array, rate=SAMPLE_RATE)
 ```
 Esse código converterá o resumo do áudio de volta para áudio, permitindo que você ouça o conteúdo resumido.
 
-Estrutura do Código
-O código está dividido nas seguintes etapas:
+> Referncia de Audio: https://youtu.be/S3RrknnJvGY?feature=shared
 
-Transcrição de Áudio (Etapa 1): O áudio é transcrito usando o Whisper.
-Geração de Resumo (Etapa 2): O texto transcrito é resumido usando o Ollama.
-Geração de Áudio (Etapa 3): O resumo gerado é convertido em áudio utilizando o Bark.
-Exemplo Completo de Execução
-Aqui está um exemplo de execução de todo o processo:
 
-```python python
-import whisper
-from langchain_ollama.llms import OllamaLLM
-from bark import SAMPLE_RATE, generate_audio, preload_models
-from IPython.display import Audio
-
-# Etapa 1: Transcrição de Áudio
-model = whisper.load_model("small")
-result = model.transcribe("/caminho/para/seu/audio.mp3")
-print(f"\n\nTexto Extraído do Áudio: {result['text']}")
-
-# Etapa 2: Geração de Resumo
-ollama_model = OllamaLLM(model="llama3.2:latest")
-resposta = ollama_model.invoke("Faça um resumo o mais resumidamente possível com os principais pontos-chaves do seguinte texto:  "+result['text'])
-print(f"\n\nResumo do Ollama: {resposta}")
-
-# Etapa 3: Geração de Áudio
-preload_models()
-text_prompt = f"[PORTUGUESE-BR] {resposta}"
-audio_array = generate_audio(text_prompt)
-Audio(audio_array, rate=SAMPLE_RATE)
-```
-Este exemplo cobre todas as etapas: transcrição de áudio, resumo e geração de áudio com o resumo.
